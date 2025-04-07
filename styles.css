@@ -11,9 +11,28 @@ body {
 
 /* Header and Navigation */
 header {
-    background-color: #222;
-    color: white;
-    padding: 1rem 0;
+    background-color: #fff; /* Light background */
+    color: #333; /* Dark text */
+    padding: 1rem 20px; /* Add horizontal padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: sticky; /* Make it stick to the top on scroll */
+    top: 0;
+    z-index: 100; /* Ensure it's above other content */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Space out logo/title and links */
+    align-items: center; /* Vertically align items */
+    max-width: 1200px; /* Limit width for larger screens */
+    margin: 0 auto; /* Center the navigation */
+}
+
+/* If you wanted to add a logo or website title */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
 }
 
 nav ul {
@@ -21,28 +40,37 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center;
 }
 
 nav ul li {
-    margin: 0 1.5rem;
+    margin-left: 1.5rem; /* Space between links */
+}
+
+nav ul li:first-child {
+    margin-left: 0; /* Remove margin from the first link */
 }
 
 nav ul li a {
-    color: white;
+    color: #555;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    font-weight: 500; /* Slightly bolder */
+    padding: 0.5rem 1rem; /* Add padding for better click area */
+    border-radius: 4px; /* Slightly rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
 }
 
-nav ul li a:hover {
-    color: #ddd;
+nav ul li a:hover,
+nav ul li a:focus {
+    background-color: #f0f0f0; /* Light background on hover/focus */
+    color: #007bff; /* Primary color on hover/focus */
 }
 
 /* Main Content */
 main {
     flex-grow: 1;
     padding: 30px;
+    max-width: 1200px; /* Limit main content width */
+    margin: 0 auto; /* Center main content */
 }
 
 .hero {
@@ -106,9 +134,9 @@ main {
 }
 
 .icon {
-    font-size: 2.5rem; /* Adjust size as needed */
+    font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: #007bff; /* Example icon color */
+    color: #007bff;
 }
 
 .service-item h3 {
@@ -135,8 +163,20 @@ footer {
 
 /* Tablet View (max-width: 768px) */
 @media (max-width: 768px) {
+    header {
+        padding: 1rem; /* Adjust padding for smaller screens */
+    }
+
+    nav {
+        justify-content: space-between; /* Keep logo/title and links separated */
+    }
+
     nav ul {
-        justify-content: space-around;
+        justify-content: flex-end; /* Align links to the right on tablet */
+    }
+
+    nav ul li {
+        margin-left: 1rem;
     }
 
     .featured-services {
@@ -151,12 +191,18 @@ footer {
 /* Mobile View (max-width: 480px) */
 @media (max-width: 480px) {
     header {
-        padding: 0.5rem 0;
+        padding: 0.8rem 1rem;
+    }
+
+    nav {
+        flex-direction: column; /* Stack logo/title and links */
+        align-items: flex-start; /* Align to the left */
     }
 
     nav ul {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+        margin-top: 1rem; /* Add some space below the logo/title */
     }
 
     nav ul li {
